@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'login.dart';
 import 'signup.dart';
 
-class accountpage extends StatefulWidget {
-  const accountpage({ Key? key }) : super(key: key);
+class AccountPage extends StatefulWidget {
+  const AccountPage({Key? key}) : super(key: key);
 
   @override
-  _accountpageState createState() => _accountpageState();
+  _AccountPageState createState() => _AccountPageState();
 }
 
-class _accountpageState extends State<accountpage> {
-
-  int _currentIndex=0;
-  List<Widget> _children=[
-    login(),
-    signup(),
+class _AccountPageState extends State<AccountPage> {
+  int _currentIndex = 0;
+  final List<Widget> _children = const [
+    Login(),
+    Signup(),
   ];
 
-  void onTappedBar(int index){
+  void onTappedBar(int index) {
     setState(() {
-      _currentIndex=index;
+      _currentIndex = index;
     });
   }
 
@@ -30,7 +29,7 @@ class _accountpageState extends State<accountpage> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTappedBar,
         currentIndex: _currentIndex,
-        items:const [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.login),
             label: "Login",

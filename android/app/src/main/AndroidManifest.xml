@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.techmeet_app">
+    package="com.example.techmeet_app"
+    xmlns:tools="http://schemas.android.com/tools">
    <application
         android:label="techmeet_app"
+        tools:replace="android:label"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

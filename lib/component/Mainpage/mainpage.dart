@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'account.dart';
-import 'package:techmeet_app/component/Mainpage/account.dart';
 
 class Mainpage extends StatefulWidget {
   const Mainpage({Key? key}) : super(key: key);
@@ -15,6 +14,7 @@ class _MainpageState extends State<Mainpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         title: const Text("TechMeet"),
         backgroundColor: HexColor("#151348"),
         centerTitle: true,
@@ -24,7 +24,7 @@ class _MainpageState extends State<Mainpage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const accountpage()));
+                        builder: (context) => const AccountPage()));
               },
               icon: const Icon(
                 Icons.person,
@@ -32,90 +32,92 @@ class _MainpageState extends State<Mainpage> {
               )),
         ],
       ),
-      body: Container(
-        child: Stack(
-          children: [
-            Container(
-              child: Container(
-                child: Column(
-                      children: [
-                      Align(
-                        alignment: const Alignment(-0.5, -1),
-                        child: Container(
-                          color: HexColor("#151348"),
-                          height: MediaQuery.of(context).size.height * 0.35,
-                          width: MediaQuery.of(context).size.width,
-                        child:Row(
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                padding: const EdgeInsets.fromLTRB(0, 40, 10, 20),
-                                child: Column(
-                                  children: [
-                                    const Align(
-                                      alignment: Alignment(-0.5, -1),
-                                      child: Text(
-                                        "Simple Text",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(10),
-                                      child: const Text(
-                                        "Lorem Ipsum is simply mine dummytext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ",
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ),
-                                  ],
-                                )
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: HexColor("#151348"),
+              border: Border.all(width: 0),
+            ),
+            child: Stack(
+              children: [
+                Container(
+                  color: HexColor("#151348"),
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 9.0),
+                            child: Text(
+                              'Simple Text',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
                               ),
-                              Container(
-                                height: MediaQuery.of(context).size.height * 0.3,
-                                padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
-                                child: const Image(
-                                  image: AssetImage('lib/assets/mainpage.png'),
-                                ),
-                              ),
-                            ],
-                          ),
-                          ),
-                      ),
-                        Container(
-                          height: MediaQuery.of(context).size.height*0.3,
-                          width: MediaQuery.of(context).size.width,
-                          child: ClipPath(
-                            clipper: BackgroundClipper(),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height*0.3,
-                              color: HexColor("#151348"),
                             ),
                           ),
-                        ),
-                      ],
+                          Container(
+                            width: 180.0,
+                            padding: const EdgeInsets.all(10),
+                            child: const Text(
+                              'Lorem Ipsum is simply mine dummytext of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                ),
-          ],
-        ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
+                      child: const Image(
+                        image: AssetImage('assets/mainpage.png'),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: MediaQuery.of(context).size.width,
+            child: ClipPath(
+              clipper: BackgroundClipper(),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.3,
+                color: HexColor("#151348"),
+              ),
+            ),
+          ),
+          // Expanded(
+          //   child: Container(
+          //     color: Colors.white,
+          //   ),
+          // )
+        ],
       ),
     );
   }
 }
 
-class BackgroundClipper extends CustomClipper<Path>{
+class BackgroundClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path=Path();
-    path.lineTo(size.width,0);
-    path.lineTo(size.width/2, size.height*0.5);
-    return path;  
+    var path = Path();
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width / 2, size.height * 0.6);
+    return path;
   }
 
   @override
