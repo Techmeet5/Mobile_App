@@ -13,6 +13,7 @@ class _ScheduledMeetingState extends State<ScheduledMeeting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff022136),
       appBar: AppBar(
         title: Text("Meeting"),
         centerTitle: true,

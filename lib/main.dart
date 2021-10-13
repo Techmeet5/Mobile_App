@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:techmeet_app/component/Mainpage/mainpage.dart';
 
-void main()=>runApp( const MaterialApp(
-      home:Mainpage(),
-  ));
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Mainpage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}

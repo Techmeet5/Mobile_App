@@ -14,6 +14,7 @@ class _RoomState extends State<Room> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff022136),
       appBar: AppBar(
         title:Text("Room"),
         centerTitle: true,

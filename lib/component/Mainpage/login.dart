@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import './../homepage/Homepage.dart';
 
 class Login extends StatefulWidget {
@@ -16,7 +15,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),
-        backgroundColor: HexColor("#151348"),
+        backgroundColor: const Color(0xff151348),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -24,7 +23,7 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 Container(
-                    color: HexColor("#151348"),
+                    color: const Color(0xff151348),
                     height: MediaQuery.of(context).size.height * 0.3,
                     width: MediaQuery.of(context).size.width,
                     child: const Align(
@@ -43,7 +42,7 @@ class _LoginState extends State<Login> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.1,
-                      color: HexColor("#151348"),
+                      color:const Color(0xff151348),
                     ),
                   ),
                 ),

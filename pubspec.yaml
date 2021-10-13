@@ -30,11 +30,10 @@ dependencies:
   flutter:
     sdk: flutter
   
-  hexcolor: ^2.0.5
   cupertino_icons: ^1.0.2
   fwfh_webview: ^0.6.1+2
   jitsi_meet: ^4.0.0
-  flutter_svg: ^0.22.0
+  responsive_navigation_bar: ^2.2.1
 
 dev_dependencies:
   flutter_test:

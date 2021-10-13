@@ -13,6 +13,7 @@ class _WhiteBoardState extends State<WhiteBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff022136),
       appBar:AppBar(
         title:Text("WhiteBoards"),
         centerTitle: true,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'account.dart';
 
 class Mainpage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _MainpageState extends State<Mainpage> {
       appBar: AppBar(
         elevation: 0.0,
         title: const Text("TechMeet"),
-        backgroundColor: HexColor("#151348"),
+        backgroundColor:const Color(0xff151348),
         centerTitle: true,
         actions: [
           IconButton(
@@ -37,13 +36,13 @@ class _MainpageState extends State<Mainpage> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: HexColor("#151348"),
+              color:const Color(0xff151348),
               border: Border.all(width: 0),
             ),
             child: Stack(
               children: [
                 Container(
-                  color: HexColor("#151348"),
+                  color: const Color(0xff151348),
                   height: MediaQuery.of(context).size.height * 0.3,
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -96,7 +95,7 @@ class _MainpageState extends State<Mainpage> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.3,
-                color: HexColor("#151348"),
+                color: const Color(0xff151348),
               ),
             ),
           ),

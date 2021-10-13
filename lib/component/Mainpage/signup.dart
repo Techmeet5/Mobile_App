@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -16,14 +15,14 @@ class _SignupState extends State<Signup> {
         appBar: AppBar(
           elevation: 0.0,
           title: const Text("SignUp"),
-          backgroundColor: HexColor("#151348"),
+          backgroundColor:const Color(0xff151348),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                color: HexColor("#151348"),
+                color: const Color(0xff151348),
                 height: MediaQuery.of(context).size.height * 0.2,
                 width: MediaQuery.of(context).size.width,
                 child: const Align(
@@ -43,7 +42,7 @@ class _SignupState extends State<Signup> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.1,
-                      color: HexColor("#151348"),
+                      color: const Color(0xff151348),
                     ),
                   ),
                 ),
