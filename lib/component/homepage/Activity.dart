@@ -16,10 +16,10 @@ class _ActivityState extends State<Activity> {
     return Scaffold(
       backgroundColor:const Color(0xff022136),
       appBar: AppBar(
-        title: Text("Activity"),
+        title: const Text("Activity"),
         centerTitle: true,
       ),
-      body: Center(child: Text("Activity"),),
+      body: const Center(child: Text("Activity"),),
     );
   }
 }

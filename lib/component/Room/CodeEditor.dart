@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:awesome_dropdown/awesome_dropdown.dart';
 
 class CodeEditor extends StatefulWidget {
   const CodeEditor({Key? key}) : super(key: key);
@@ -51,21 +52,21 @@ class _CodeEditorState extends State<CodeEditor> {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width*0.4,   
-                    // child: AwesomeDropDown(
-                    //   isPanDown: _isPanDown,
-                    //   dropDownList: _list,
-                    //   isBackPressedOrTouchedOutSide: _isBackPressedOrTouchedOutSide,
-                    //   selectedItem: _selectedItem,
-                    //   onDropDownItemClick: (selectedItem) {
-                    //     _selectedItem = selectedItem;
-                    //   },
-                    //   dropStateChanged: (isOpened) {
-                    //     _isDropDownOpened = isOpened;
-                    //     if (!isOpened) {
-                    //       _isBackPressedOrTouchedOutSide = false;
-                    //     }
-                    //   }
-                    // )
+                    child: AwesomeDropDown(
+                      isPanDown: _isPanDown,
+                      dropDownList: _list,
+                      isBackPressedOrTouchedOutSide: _isBackPressedOrTouchedOutSide,
+                      selectedItem: _selectedItem,
+                      onDropDownItemClick: (selectedItem) {
+                        _selectedItem = selectedItem;
+                      },
+                      dropStateChanged: (isOpened) {
+                        _isDropDownOpened = isOpened;
+                        if (!isOpened) {
+                          _isBackPressedOrTouchedOutSide = false;
+                        }
+                      }
+                    )
                   ),
                   Padding(padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.2)),
                   Column(

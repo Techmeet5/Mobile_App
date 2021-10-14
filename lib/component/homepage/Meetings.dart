@@ -15,10 +15,10 @@ class _ScheduledMeetingState extends State<ScheduledMeeting> {
     return Scaffold(
       backgroundColor: const Color(0xff022136),
       appBar: AppBar(
-        title: Text("Meeting"),
+        title: const Text("Meeting"),
         centerTitle: true,
       ),
-      body: Center(child: Text("meetings"),),
+      body: const Center(child: Text("meetings"),),
     );
   }
 }

@@ -15,10 +15,16 @@ class _WhiteBoardState extends State<WhiteBoard> {
     return Scaffold(
       backgroundColor: const Color(0xff022136),
       appBar:AppBar(
-        title:Text("WhiteBoards"),
+        title:const Text(
+          "WhiteBoards",
+          style: TextStyle(
+            color: Color(0xff95FE0D),
+          ),
+          ),
+        backgroundColor:const Color(0xff022136),
         centerTitle: true,
       ),
-      body: Center(child: Text("Whiteboard"),),
+      body: const Center(child: Text("Whiteboard"),),
     );
   }
 }

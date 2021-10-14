@@ -16,12 +16,12 @@ class _RoomState extends State<Room> {
     return Scaffold(
       backgroundColor: const Color(0xff022136),
       appBar: AppBar(
-        title:Text("Room"),
+        title:const Text("Room"),
         centerTitle: true,
       ),
       body: Center(
         child: ElevatedButton(
-          child:Container(
+          child:const SizedBox(
             height: 50,
             width: 100,
             child: Center(child: Text("Room Page"),)
