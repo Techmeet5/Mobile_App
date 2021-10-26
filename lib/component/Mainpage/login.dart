@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import './../homepage/Homepage.dart';
+import 'package:http/http.dart' as http;
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -12,6 +15,8 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    TextEditingController _textcontroller1=TextEditingController();
+    TextEditingController _textcontroller2=TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),
@@ -62,6 +67,7 @@ class _LoginState extends State<Login> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           TextFormField(
+                            controller:_textcontroller1,
                             decoration: const InputDecoration(
                               contentPadding: EdgeInsetsDirectional.all(10),
                               hintText: 'Enter your email',
@@ -75,6 +81,7 @@ class _LoginState extends State<Login> {
                           ),
                           const Padding(padding: EdgeInsetsDirectional.all(10)),
                           TextFormField(
+                            controller:_textcontroller2,
                             decoration: const InputDecoration(
                               contentPadding: EdgeInsetsDirectional.all(10),
                               hintText: 'Enter your Password',
@@ -92,12 +99,7 @@ class _LoginState extends State<Login> {
                               child: Center(
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const HomePage()));
-                                    }
+                                   funct(_textcontroller1,_textcontroller2);
                                   },
                                   child: const Text('Submit'),
                                 ),
@@ -112,6 +114,23 @@ class _LoginState extends State<Login> {
           ),
       ),
     );
+  }
+
+  void funct(TextEditingController _textcontroller1,TextEditingController _textcontroller2) async {
+    var url = Uri.parse('https://codeeditor-backend.herokuapp.com/api/login/');
+    var response=await http.post(url,body:{"username":_textcontroller1.text,"password": _textcontroller2.text});
+    final data = jsonDecode(response.body.toString());
+    print(data);
+    if (_formKey.currentState!.validate()){
+      print(data["login"]);
+      if(data["login"]=="true"){
+        print(data);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomePage()));
+      }
+    }
   }
 }
 

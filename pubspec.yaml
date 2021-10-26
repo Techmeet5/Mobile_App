@@ -33,8 +33,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   fwfh_webview: ^0.6.1+2
   jitsi_meet: ^4.0.0
+  web_socket_channel: ^2.1.0
   responsive_navigation_bar: ^2.2.1
   awesome_dropdown: ^0.0.4
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

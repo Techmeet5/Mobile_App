@@ -1,4 +1,7 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -11,6 +14,11 @@ class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _textcontroller1 = TextEditingController();
+    final TextEditingController _textcontroller2 = TextEditingController();
+    final TextEditingController _textcontroller3 = TextEditingController();
+    final TextEditingController _textcontroller4 = TextEditingController();
+    final TextEditingController _textcontroller5 = TextEditingController();
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
@@ -61,10 +69,12 @@ class _SignupState extends State<Signup> {
                       children: [
                         const SizedBox(height: 10.0),
                         TextFormField(
+                          controller: _textcontroller1,
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsetsDirectional.all(10),
                             hintText: 'Enter your First Name',
                           ),
+                          
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter some text';
@@ -74,6 +84,7 @@ class _SignupState extends State<Signup> {
                         ),
                         const SizedBox(height: 10.0),
                         TextFormField(
+                          controller: _textcontroller2,
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsetsDirectional.all(10),
                             hintText: 'Enter your Last Name',
@@ -87,6 +98,21 @@ class _SignupState extends State<Signup> {
                         ),
                         const SizedBox(height: 12.0),
                         TextFormField(
+                          controller: _textcontroller3,
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsetsDirectional.all(10),
+                            hintText: 'Enter your UserName',
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 12.0),
+                        TextFormField(
+                          controller: _textcontroller4,
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsetsDirectional.all(10),
                             hintText: 'Enter your Email',
@@ -100,6 +126,7 @@ class _SignupState extends State<Signup> {
                         ),
                         const SizedBox(height: 12.0),
                         TextFormField(
+                          controller: _textcontroller5,
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsetsDirectional.all(10),
                             hintText: 'Enter your Password',
@@ -119,7 +146,9 @@ class _SignupState extends State<Signup> {
                                 textStyle: const TextStyle(letterSpacing: 1.2),
                                 ),
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {}
+                              if (_formKey.currentState!.validate()) {
+                                funct(_textcontroller1.text,_textcontroller2.text,_textcontroller3.text,_textcontroller4.text,_textcontroller5.text);
+                              }
                             },
                             child: const Text('Submit'),
                           ),
@@ -132,118 +161,20 @@ class _SignupState extends State<Signup> {
             ],
           ),
         )
-
-        // Stack(
-        //   children: [
-        //     Container(
-        //       child: Column(
-        //         children: [
-        //           Container(
-        //               color: HexColor("#151348"),
-        //               height: MediaQuery.of(context).size.height * 0.2,
-        //               width: MediaQuery.of(context).size.width,
-        //               child: const Align(
-        //                 alignment: Alignment(-1, -1),
-        //                 child: Image(
-        //                   image: const AssetImage('assets/login.png'),
-        //                 ),
-        //               )),
-        //           Container(
-        //             height: MediaQuery.of(context).size.height * 0.1,
-        //             width: MediaQuery.of(context).size.width,
-        //             child: ClipPath(
-        //               clipper: BackgroundClipper(),
-        //               child: Container(
-        //                 width: MediaQuery.of(context).size.width,
-        //                 height: MediaQuery.of(context).size.height * 0.1,
-        //                 color: HexColor("#151348"),
-        //               ),
-        //             ),
-        //           ),
-        //           Center(
-        //             child: Container(
-        //               width: MediaQuery.of(context).size.width * 0.8,
-        //               height: MediaQuery.of(context).size.height * 0.3,
-        //               child: Form(
-        //                 key: _formKey,
-        //                 child: SingleChildScrollView(
-        //                   child: Column(
-        //                     crossAxisAlignment: CrossAxisAlignment.start,
-        //                     children: <Widget>[
-        //                       TextFormField(
-        //                         decoration: const InputDecoration(
-        //                           contentPadding: EdgeInsetsDirectional.all(10),
-        //                           hintText: 'Enter your First Name',
-        //                         ),
-        //                         validator: (String? value) {
-        //                           if (value == null || value.isEmpty) {
-        //                             return 'Please enter some text';
-        //                           }
-        //                           return null;
-        //                         },
-        //                       ),
-        //                       const Padding(
-        //                           padding: EdgeInsetsDirectional.all(10)),
-        //                       TextFormField(
-        //                         decoration: const InputDecoration(
-        //                           contentPadding: EdgeInsetsDirectional.all(10),
-        //                           hintText: 'Enter your Last Name',
-        //                         ),
-        //                         validator: (String? value) {
-        //                           if (value == null || value.isEmpty) {
-        //                             return 'Please enter some text';
-        //                           }
-        //                           return null;
-        //                         },
-        //                       ),
-        //                       const Padding(
-        //                           padding: EdgeInsetsDirectional.all(10)),
-        //                       TextFormField(
-        //                         decoration: const InputDecoration(
-        //                           contentPadding: EdgeInsetsDirectional.all(10),
-        //                           hintText: 'Enter your Email',
-        //                         ),
-        //                         validator: (String? value) {
-        //                           if (value == null || value.isEmpty) {
-        //                             return 'Please enter some text';
-        //                           }
-        //                           return null;
-        //                         },
-        //                       ),
-        //                       TextFormField(
-        //                         decoration: const InputDecoration(
-        //                           contentPadding: EdgeInsetsDirectional.all(10),
-        //                           hintText: 'Enter your Password',
-        //                         ),
-        //                         validator: (String? value) {
-        //                           if (value == null || value.isEmpty) {
-        //                             return 'Please enter some text';
-        //                           }
-        //                           return null;
-        //                         },
-        //                       ),
-        //                       Padding(
-        //                         padding:
-        //                             const EdgeInsets.symmetric(vertical: 30.0),
-        //                         child: ElevatedButton(
-        //                           onPressed: () {
-        //                             if (_formKey.currentState!.validate()) {}
-        //                           },
-        //                           child: const Text('Submit'),
-        //                         ),
-        //                       ),
-        //                     ],
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     )
-        //   ],
-        // ),
-        );
+      );
+  }
+  
+  void funct(String textcontroller1,String textcontroller2,String textcontroller3,String textcontroller4,String textcontroller5,) async {
+    var url = Uri.parse('https://codeeditor-backend.herokuapp.com/api/add/');
+    var response=await http.post(url,body:{"username":textcontroller1,"password":textcontroller2,"first_name":textcontroller3,"email":textcontroller4,"last_name":textcontroller5});
+    final data = jsonDecode(response.body.toString());
+    print(data);
+    if (_formKey.currentState!.validate()){
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Login()));
+    }
   }
 }
 
